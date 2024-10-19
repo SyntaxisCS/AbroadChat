@@ -12,6 +12,12 @@ export default function Home() {
     { id: 2, name: "Hiking Buddies" },
     { id: 3, name: "Language Exchange" },
   ]);
+  
+  const [suggestedGroups, setSuggestedGroups] = useState([
+    { id: 4, name: "Book Club" },
+    { id: 5, name: "Foodies United" },
+    { id: 6, name: "Travel Lovers" },
+  ]);
 
   return (
     <div className="home-container">
@@ -25,6 +31,17 @@ export default function Home() {
             {joinedGroups.map((group) => (
               <li key={group.id} className="group-item">
                 {group.name}
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section className="groups-section">
+          <h2>Suggested Groups</h2>
+          <ul className="group-list">
+            {suggestedGroups.map((group) => (
+              <li key={group.id} className="group-item">
+                {group.name}
+                <button className="join-button">Join</button>
               </li>
             ))}
           </ul>

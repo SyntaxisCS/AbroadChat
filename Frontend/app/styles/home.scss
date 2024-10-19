@@ -48,10 +48,30 @@
             font-size: 1rem;
             color: #0070f3;
             cursor: pointer;
+            position: relative;
             transition: background-color 0.3s ease;
   
             &:hover {
               background-color: #f0f4f8;
+            }
+  
+            .join-button {
+              background-color: #28a745;
+              color: #fff;
+              border: none;
+              border-radius: 3px;
+              padding: 0.4rem 0.8rem;
+              font-size: 0.9rem;
+              cursor: pointer;
+              position: absolute;
+              right: 1rem;
+              top: 50%;
+              transform: translateY(-50%);
+              transition: background-color 0.3s ease;
+  
+              &:hover {
+                background-color: #218838;
+              }
             }
           }
         }
