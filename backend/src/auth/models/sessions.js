@@ -1,6 +1,6 @@
-import { makeDBQuery } from "../../db/config";
+import { makeDBQuery } from "../../db/config.js";
 
-import { logger } from "../../../logger";
+import { logger } from "../../../logger.js";
 
 export const getAllUserSessionsByUserId = async (userId) => {
     try {
@@ -16,7 +16,7 @@ export const getAllUserSessionsByUserId = async (userId) => {
         return result.rows ? result.rows : null;
 
     } catch (err) {
-        logger.error("Could not get all user sessions by user id", {err});
+        logger.error("Could not get all user sessions by user id", { err });
         throw err;
     }
 };
@@ -33,9 +33,9 @@ export const findSessionById = async (sessionId) => {
 
         const result = await makeDBQuery(query);
         return result.rows[0] ? result.rows[0] : null;
-        
+
     } catch (err) {
-        logger.error("Could not find session by ID", {err});
+        logger.error("Could not find session by ID", { err });
         throw err;
     }
 };
@@ -55,7 +55,7 @@ export const createSession = async (userId, refreshToken, userAgent = null, ipAd
         return result.rows[0] ? result.rows[0] : null;
 
     } catch (err) {
-        logger.error("Could not create session", {err});
+        logger.error("Could not create session", { err });
         throw err;
     }
 };

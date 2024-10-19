@@ -58,10 +58,10 @@ export const loginUser = async (usernameEmail, password, totpToken) => {
 
     // Check if totp is enabled
     if (user.is_totp_enabled) {
-        
+
         // Totp is enabled, check for token
         if (!totpToken) throw new Error("TOTP token required");
-        if (!user.totp_secret) throw new Error("User has 2FA enabled, but not secret is set");
+        if (!user.totp_secret) throw new Error("User has 2FA enabled, but no secret is set");
 
         // Verify code
         const verified = await verifyTOTP(user, totpToken);
@@ -76,9 +76,6 @@ export const loginUser = async (usernameEmail, password, totpToken) => {
 };
 
 // Helpers
-
-// If brave, make function to generate the totp secret and qrcode for setting up totp 
-
 export const verifyTOTP = async (existingUser, token) => {
     try {
 
@@ -100,12 +97,12 @@ export const verifyTOTP = async (existingUser, token) => {
         return verified;
 
     } catch (err) {
-        switch(err.message) {
+        switch (err.message) {
             case "Missing user object or token":
-                logger.warn("Missing user object or token during TOTP verification", {err});
+                logger.warn("Missing user object or token during TOTP verification", { err });
                 return false;
             default:
-                logger.error("Error during TOTP verification", {err});
+                logger.error("Error during TOTP verification", { err });
                 return false;
         }
     }

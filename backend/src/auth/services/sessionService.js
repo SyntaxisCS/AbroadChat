@@ -1,11 +1,11 @@
-import { logger } from "../../../logger";
+import { logger } from "../../../logger.js";
 
 // DB
-import { createSession, findSessionByRefreshToken, revokeAllSessionsForUser, revokeSessionById, updateRefreshToken } from "../models/sessions";
-import { findUserById, updateUserLoginTime } from "../models/user";
+import { createSession, findSessionByRefreshToken, revokeAllSessionsForUser, revokeSessionById, updateRefreshToken } from "../models/sessions.js";
+import { findUserById, updateUserLoginTime } from "../models/user.js";
 
 // Helpers
-import { createAccessToken, createRefreshToken, verifyRefreshToken } from "../../utils/jwt";
+import { createAccessToken, createRefreshToken, verifyRefreshToken } from "../../utils/jwt.js";
 
 export const createNewSession = async (userId, userAgent, ipAddress) => {
     try {
@@ -28,7 +28,7 @@ export const createNewSession = async (userId, userAgent, ipAddress) => {
         return { accessToken, refreshToken };
 
     } catch (err) {
-        logger.error("Could not create new session", {err});
+        logger.error("Could not create new session", { err });
         throw err;
     }
 };
@@ -53,14 +53,14 @@ export const refreshSession = async (currentRefreshToken) => { // returns either
         // Generate a new token pair and update the session
         const newAccessToken = await createAccessToken(dbUser.id, dbUser.email, dbUser.username, dbUser.passkey_enabled);
         const newRefreshToken = await createRefreshToken(session.user_id);
-        
+
         // Update session
         await updateRefreshToken(session.id, newRefreshToken);
 
         return { accessToken: newAccessToken, refreshToken: newRefreshToken };
 
     } catch (err) {
-        logger.error("Could not refresh session", {err});
+        logger.error("Could not refresh session", { err });
         throw err;
     }
 };

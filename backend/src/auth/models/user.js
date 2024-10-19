@@ -1,6 +1,6 @@
-import { makeDBQuery } from "../../db/config";
-import { logger } from "../../../logger";
-import { generateUUID } from "../../utils/uuid";
+import { makeDBQuery } from "../../db/config.js";
+import { logger } from "../../../logger.js";
+import { generateUUID } from "../../utils/uuid.js";
 
 // Get user
 export const findUserById = async (userId) => {
@@ -78,7 +78,7 @@ export const getUserAvatar = async (id) => {
         return result.rows[0] || null;
 
     } catch (err) {
-        logger.error("Error getting user avatar", {err});
+        logger.error("Error getting user avatar", { err });
         throw err;
     }
 };
@@ -99,16 +99,16 @@ export const updateUserEmail = async (id, newEmail) => {
         return result.rows[0];
 
     } catch (err) {
-        logger.error("Error updating user email", {err});
+        logger.error("Error updating user email", { err });
         throw err;
     }
 };
 
 export const updateUserEmailVerification = async (id, verified = false) => {
     try {
-        
+
         if (!id) throw new Error("User ID not provided");
-        
+
         // Verification status
         const verifyStatus = verified ? new Date().toISOString() : null;
 
@@ -122,7 +122,7 @@ export const updateUserEmailVerification = async (id, verified = false) => {
         return result.rows[0];
 
     } catch (err) {
-        logger.error("Error updating user email verification status", {err});
+        logger.error("Error updating user email verification status", { err });
         throw err;
     }
 };
@@ -137,12 +137,12 @@ export const updateUserUsername = async (id, newUsername) => {
             text: "UPDATE users SET username = $1,updated_at = $2 WHERE id = $3 RETURNING id,email,username",
             values: [newUsername, new Date().toISOString(), id]
         };
-    
+
         const result = await makeDBQuery(query);
         return result.rows[0];
 
     } catch (err) {
-        logger.error("Error updating user username", {err});
+        logger.error("Error updating user username", { err });
         throw err;
     };
 };
@@ -162,7 +162,7 @@ export const updateUserPassword = async (id, newPassword) => {
         return result.rows[0];
 
     } catch (err) {
-        logger.error("Error updating user password", {err});
+        logger.error("Error updating user password", { err });
         throw err;
     }
 };
@@ -182,7 +182,7 @@ export const updateUserAvatar = async (id, newAvatar) => {
         return result.rows[0];
 
     } catch (err) {
-        logger.error("Error updating user avatar", {err});
+        logger.error("Error updating user avatar", { err });
         throw err;
     }
 };
@@ -202,7 +202,7 @@ export const updateUserLoginTime = async (userId) => {
         return result.rows[0];
 
     } catch (err) {
-        logger.error("Error updating user login time", {err});
+        logger.error("Error updating user login time", { err });
         throw err;
     }
 };
@@ -257,10 +257,10 @@ export const createUser = async ({
         // Make query
         const result = await makeDBQuery(query);
         return result.rows[0]; // Return the new user
-        
+
 
     } catch (err) {
-        logger.error("Error during user creation", {err});
+        logger.error("Error during user creation", { err });
         throw err;
     }
 };
@@ -278,7 +278,7 @@ export const deleteUser = async (userId) => {
         await makeDBQuery(query);
         return;
     } catch (err) {
-        logger.error("Error deleting user", {err});
+        logger.error("Error deleting user", { err });
         throw err;
     }
 };
@@ -299,7 +299,7 @@ export const addTOTPToUser = async (userId, secret) => {
         return;
 
     } catch (err) {
-        logger.error("Error adding TOTP to user", {err});
+        logger.error("Error adding TOTP to user", { err });
         throw err;
     }
 };
@@ -319,7 +319,7 @@ export const deleteTOTPFromUser = async (userId) => {
         return true;
 
     } catch (err) {
-        logger.error("Error deleting TOTP from user", {err});
+        logger.error("Error deleting TOTP from user", { err });
         throw err;
     }
 };
@@ -340,7 +340,7 @@ export const checkIfUsernameIsUnique = async (username) => {
         return results.rows[0] ? false : true;
 
     } catch (err) {
-        logger.error("Error checking username uniqueness", {err});
+        logger.error("Error checking username uniqueness", { err });
         throw err;
     }
 };

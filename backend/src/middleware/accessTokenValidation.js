@@ -1,10 +1,10 @@
 // Logging
-import { logger } from "../../logger";
+import { logger } from "../../logger.js";
 
 // Helpers
-import { verifyAccessToken } from "../utils/jwt";
+import { verifyAccessToken } from "../utils/jwt.js";
 
-export default async function accessTokenValidation (req, res, next) {
+export default async function accessTokenValidation(req, res, next) {
     const authHeader = req.headers["authorization"];
 
     if (!authHeader) {
@@ -21,7 +21,7 @@ export default async function accessTokenValidation (req, res, next) {
 
             // Verify the token
             const decodedToken = await verifyAccessToken(token); // returns decoded jwt, null if invalid
-            
+
             if (decodedToken) {
                 // If token is valid, set req.session
                 req.session = {
@@ -32,7 +32,7 @@ export default async function accessTokenValidation (req, res, next) {
 
         } catch (err) {
             console.log(err);
-            logger.warn("Error decoding JWT", {token, err});
+            logger.warn("Error decoding JWT", { token, err });
         }
     }
 
