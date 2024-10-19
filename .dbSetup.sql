@@ -24,7 +24,8 @@ CREATE TABLE user_profiles (
     id UUID REFERENCES users(id) NOT NULL,
     country_of_origin VARCHAR(255),
     languages_spoken TEXT[],
-    tags TEXT[]
+    tags TEXT[],
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 CREATE TABLE user_passkeys ( -- Store user id
