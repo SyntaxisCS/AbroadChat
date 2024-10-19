@@ -232,14 +232,13 @@ export const createUser = async ({
             hasPasskeys,
             createdAt,
             updatedAt,
-            userType,
-            isActive: username ? true : false // If username is not provided, set user to be inactive
+            userType
         };
 
         // Make db query
         const query = {
             name: "createUser",
-            text: "INSERT INTO users (id, username, email, password, has_password_enabled, passkey_enabled, user_type, created_at, updated_at, is_active) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *",
+            text: "INSERT INTO users (id, username, email, password, has_password_enabled, passkey_enabled, user_type, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *",
             values: [
                 newUser.id,
                 newUser.username,
@@ -250,7 +249,6 @@ export const createUser = async ({
                 newUser.userType,
                 newUser.createdAt,
                 newUser.updatedAt,
-                newUser.isActive
             ]
         };
 
