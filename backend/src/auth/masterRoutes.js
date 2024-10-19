@@ -5,6 +5,7 @@ import { logger } from "../../logger.js";
 
 // Routes
 import PasswordRoutes from "./routes/passwordRoutes.js";
+import PasskeyRoutes from "./routes/passkeyRoutes.js";
 
 // Services
 import { refreshSession } from "./services/sessionService.js";
@@ -14,13 +15,16 @@ const router = Router();
 // Routes
 router.use("/traditional", PasswordRoutes);
 
+// Passkeys
+router.use("/passkey", PasskeyRoutes);
+
 // Utility
 router.post("/refresh", async (req, res) => {
     try {
         console.log(req.session); // FIXME: remove my ass
 
         const { refreshToken } = req.body;
-        if (!refreshToken) return res.status(400).send({error: "Refresh token is required"});
+        if (!refreshToken) return res.status(400).send({ error: "Refresh token is required" });
 
         // Attempt to refresh the session
         const updatedSession = await refreshSession(refreshToken);
