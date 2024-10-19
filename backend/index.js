@@ -5,6 +5,10 @@ import compression from "compression";
 const app = express();
 app.use(express.json());
 
+// Dotenv
+import dotenv from "dotenv";
+dotenv.config();
+
 // Logger
 import { logger } from "./logger.js";
 
@@ -30,7 +34,7 @@ const shouldCompress = async (req, res) => {
     return compression.filter(req, res);
 };
 
-app.use(compression({filter: shouldCompress}));
+app.use(compression({ filter: shouldCompress }));
 // Compression
 
 // Validate Access Tokens - set req.session

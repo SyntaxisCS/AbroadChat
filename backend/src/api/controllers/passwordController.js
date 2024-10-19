@@ -39,6 +39,7 @@ export const register = async (req, res) => {
 
     } catch (err) {
         logger.error("Error occurred during traditional register process", { err });
+        console.error(err);
         res.status(400).send({ error: err.message });
     }
 };
