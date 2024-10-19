@@ -8,9 +8,7 @@
     "build": "npx remix vite:build",
     "start": "cross-env NODE_ENV=production node ./server.js"
   },
-  "author": "Charles Stello",
-  "license": "GPL-3.0-only",
-  "description": "",
+  "author": "AbroadChat",
   "dependencies": {
     "@remix-run/dev": "^2.11.1",
     "@remix-run/express": "^2.11.1",

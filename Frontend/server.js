@@ -38,7 +38,7 @@ app.use(compression({filter: shouldCompress}));
 // Request Handler
 app.all("*", createRequestHandler({ build }));
 
-const port = process.env.port || 9801;
+const port = process.env.FRONTEND_PORT || 9801;
 
 app.listen(port, () => {
     console.info(`App listening on http://localhost:${port}`);
