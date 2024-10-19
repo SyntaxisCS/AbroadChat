@@ -1,0 +1,61 @@
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+    text-align: center;
+  
+    .landing-content {
+      background-color: #fff;
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #666;
+      }
+  
+      .button-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+  
+        .button {
+          text-decoration: none;
+          padding: 0.8rem 1.5rem;
+          border-radius: 5px;
+          font-size: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &.signup-button {
+            background-color: #0070f3;
+            color: #fff;
+  
+            &:hover {
+              background-color: #005bb5;
+            }
+          }
+  
+          &.signin-button {
+            background-color: #f39c12;
+            color: #fff;
+  
+            &:hover {
+              background-color: #e67e22;
+            }
+          }
+        }
+      }
+    }
+  }

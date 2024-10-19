@@ -26,11 +26,11 @@ export const meta = () => {
 export const links = () => {
     return [
         { rel: "icon", href: "/favicon.ico"},
-        { rel: "icon", type: "image/png", sizes: "32x32", href:""},
-        { rel: "icon", type: "image/png", sizes: "16x16", href:""},
-        { rel: "apple-touch-icon", sizes: "180x108", href: ""},
-        { rel: "shortcut-icon", href: ""},
-        { rel: "manifest", href: ""},
+        { rel: "icon", type: "image/png", sizes: "32x32", href:"#"},
+        { rel: "icon", type: "image/png", sizes: "16x16", href:"#"},
+        { rel: "apple-touch-icon", sizes: "180x108", href: "#"},
+        { rel: "shortcut-icon", href: "#"},
+        { rel: "manifest", href: "#"},
         // Bunny
         { rel: "preconnect", href: "https://fonts.bunny.net"},
         { rel: "stylesheet", href: "https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900|quicksand:300,400,500,600,700" },
