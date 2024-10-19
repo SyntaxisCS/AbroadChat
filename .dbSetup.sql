@@ -20,6 +20,13 @@ CREATE TABLE users ( -- User auth table, only holds stuff related to auth, proje
     last_sign_in_at TIMESTAMP
 );
 
+CREATE TABLE user_profiles (
+    id UUID REFERENCES users(id) NOT NULL,
+    country_of_origin VARCHAR(255),
+    languages_spoken TEXT[],
+    tags TEXT[]
+);
+
 CREATE TABLE user_passkeys ( -- Store user id
     user_id UUID REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     credential_id TEXT NOT NULL,
