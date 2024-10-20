@@ -1,17 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/chat.scss";
 import { NavLink } from "@remix-run/react";
 
 export default function Chat() {
 
-    const [messages, setMessages] = useState([
+    const initialMessages = [
         { id: 1, sender: "Alice", text: "Welcome to the group!" },
         { id: 2, sender: "Bob", text: "Hey John!" },
-        { id: 3, sender: "John", text: "Hi guys!" },
-        { id: 5, sender: "Charlie", text: "We were planning on meeting up for coffee sometime next week, you in?" },
-        { id: 5, sender: "John", text: "Yeah sure. Thanks!" },
-    ]);
+        { id: 3, sender: "John", text: "Hi guys!" }
+    ];
+
+    const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
+
+    useEffect(() => {
+        let delay = 0;
+        initialMessages.forEach((msg, index) => {
+            const timeoutId = setTimeout(() => {
+                setMessages(prevMessages => {
+                    if (!prevMessages.some(m => m.id === msg.id)) {
+                        return [...prevMessages, msg];
+                    }
+                    return prevMessages;
+                });
+            }, delay);
+            delay += (Math.floor(Math.random() * 1000) + 500);
+
+            return () => clearTimeout(timeoutId);
+        });
+    }, []);
 
     const handleSendMessage = (e) => {
         e.preventDefault();
@@ -32,8 +49,15 @@ export default function Chat() {
                 <NavLink to="/home">
                     <i className="bx bx-left-arrow-alt" />
                 </NavLink>
+
+                <div className="groupMems">
+                    <span>Alice, Bob, Charlie, John</span>
+                </div>
             </header>
             <main className="chatContent">
+                <div className="potd">
+                    <p>Prompt of the day</p>
+                </div>
                 <p className="joinMessage">John has joined the chat</p>
                 <ul className="messagesList">
                     {messages.map(message => (
