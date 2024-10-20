@@ -46,12 +46,16 @@ export default function Chat() {
     return (
         <div className="chatContainer">
             <header className="chatHeader">
-                <NavLink to="/home">
-                    <i className="bx bx-left-arrow-alt" />
-                </NavLink>
+                <div className="leftGroup">
+                    <NavLink to="/home">
+                        <i className="bx bx-left-arrow-alt" />
+                    </NavLink>
+                    <span className="groupName">Colombia Coffee</span>
+                </div>
 
-                <div className="groupMems">
-                    <span>Alice, Bob, Charlie, John</span>
+                <div className="rightGroup">
+                    <div className="chip"><span>meeetup</span></div>
+                    <i className="bx bx-info-circle" />
                 </div>
             </header>
             <main className="chatContent">
