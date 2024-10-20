@@ -7,7 +7,8 @@ export default function Chat() {
     const initialMessages = [
         { id: 1, sender: "Alice", text: "Welcome to the group!" },
         { id: 2, sender: "Bob", text: "Hey John!" },
-        { id: 3, sender: "John", text: "Hi guys!" }
+        { id: 3, sender: "John", text: "Hi Guys!" },
+        { id: 4, sender: "Charlie", text: "Hey John! We were just speaking about meeting up this saturday, any ideas?" },
     ];
 
     const [messages, setMessages] = useState([]);
@@ -60,7 +61,7 @@ export default function Chat() {
             </header>
             <main className="chatContent">
                 <div className="potd">
-                    <p>Prompt of the day</p>
+                    <p>POTD... do you prefer arabica or robusta or which blend?</p>
                 </div>
                 <p className="joinMessage">John has joined the chat</p>
                 <ul className="messagesList">

@@ -1,262 +1,262 @@
 @import "../variables";
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: $background;
-    font-family: Arial, sans-serif;
-  
-    .app-header {
-      background-color: #0070f3;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-  
-      h1 {
-        font-size: 1.5rem;
-        margin: 0;
-      }
-    }
-  
-    .main-content {
-      flex: 1;
-      padding: 1rem 0 0 0;
-      overflow-y: auto;
-  
-      .groups-section {
-        margin-bottom: 2rem;
-  
-        h2 {
-          font-size: 28px;
-          margin-bottom: 1rem;
-          color: #333;
-        }
-  
-        .group-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-  
-          .group-item {
-            background-color: #fff;
-            margin-right: 1rem;
-            margin-left: 1rem;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 0.8rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            font-size: 1rem;
-            color: #0070f3;
-            cursor: pointer;
-            position: relative;
-            transition: background-color 0.3s ease;
-  
-            &:hover {
-              background-color: #f0f4f8;
-            }
-  
-            .join-button {
-              background-color: #28a745;
-              color: #fff;
-              border: none;
-              
-              border-radius: 3px;
-              padding: 0.4rem 0.8rem;
-              font-size: 0.9rem;
-              cursor: pointer;
-              position: absolute;
-              right: 1rem;
-              top: 50%;
-              transform: translateY(-50%);
-              transition: background-color 0.3s ease;
-  
-              &:hover {
-                background-color: #218838;
-              }
-            }
-          }
-        }
-      }
-  
-      .join-group-button {
-        display: block;
-        width: 90%;
-        padding: 0.8rem;
-        background-color: #0070f3;
-        color: #fff;
-        border: none;
-        margin: auto;
-        box-sizing: border-box;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        cursor: pointer;
-        text-align: center;
-        transition: background-color 0.3s ease;
-  
-        &:hover {
-          background-color: #005bb5;
-        }
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $background;
+  font-family: Arial, sans-serif;
 
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background-color: $secondary;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    border-radius: 5px;
-    align-items: center;
+  .app-header {
+    background-color: $text;
+    color: $secondary;
+    padding: 1rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .confirm-button,
-  .cancel-button {
-    padding: 0.8rem 1.2rem;
-    border: 2px solid black;
-    border-radius: 5px;
-    max-width: 5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0.5rem;
-  }
-  
-  .confirm-button {
-    background-color: $secondary;
-    color: black;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: $primary;
-    }
-  }
-  
-  .cancel-button {
-    background-color: $secondary;
-    color: black;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: $primary;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
     }
   }
 
-    .suggested-groups-section {
-      margin-bottom: 0;
+  .main-content {
+    flex: 1;
+    padding: 1rem 0 0 0;
+    overflow-y: auto;
+
+    .groups-section {
+      margin-bottom: 2rem;
 
       h2 {
         font-size: 28px;
-        color: #333;
+        margin-bottom: 1rem;
+        color: $text;
       }
 
-      .suggested-group-grid {
-        background-color: #fff;
-        padding: 1rem;
-        border-radius: 1rem;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        row-gap: 2rem;
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
+      .group-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-        .suggested-group-box {
-          position: relative;
-          background-color: #fff;
-          border-radius: 25%;
-          min-height: 8rem;
+        .group-item {
+          background-color: $secondary;
+          margin-right: 1rem;
+          margin-left: 1rem;
+          border-radius: 10px;
           padding: 1rem;
+          margin-bottom: 0.8rem;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          transition: transform 0.3s ease;
-
-          &.green{
-            background-color: $primary;
-          }
-
-          &.blue{
-            background-color: $secondary;
-          }
-
-          &.orange{
-            background-color: $accent;
-          }
+          font-size: 1rem;
+          color: $text;
+          font-weight: bold;
+          cursor: pointer;
+          position: relative;
+          transition: background-color 0.5s ease-in-out;
 
           &:hover {
-            transform: translateY(-5px);
-          }
-
-          .flag-circle {
-            position: absolute;
-            top: -25px;
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border: 2px solid #ddd;
-            border-radius: 50%;
-            overflow: hidden;
-
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-
-          .suggested-group-info {
-            margin-top: 2.5rem;
-
-            .country {
-              font-size: 24px;
-              font-weight: bold;
-              color: #333;
-              margin-bottom: 0.5rem;
-            }
-
-            .interest {
-              font-size: 18px;
-              color: #666;
-            }
+            background-color: #f0f4f8;
           }
 
           .join-button {
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #0070f3;
+            background-color: #28a745;
             color: #fff;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
+
+            border-radius: 3px;
+            padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
+            cursor: pointer;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
             transition: background-color 0.3s ease;
 
             &:hover {
-              background-color: #005bb5;
+              background-color: #218838;
             }
           }
         }
       }
     }
-  
+
+    .join-group-button {
+      display: block;
+      width: 90%;
+      padding: 0.8rem;
+      background-color: $secondary;
+      color: $text;
+      border: none;
+      margin: auto;
+      box-sizing: border-box;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($secondary, 20%);
+      }
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: $secondary;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 0.8rem 1.2rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  max-width: 5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.confirm-button {
+  background-color: $secondary;
+  color: black;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.cancel-button {
+  background-color: $secondary;
+  color: black;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.suggested-groups-section {
+  margin-bottom: 0;
+
+  h2 {
+    font-size: 28px;
+    color: #333;
+  }
+
+  .suggested-group-grid {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    row-gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+
+    .suggested-group-box {
+      position: relative;
+      background-color: #fff;
+      border-radius: 25%;
+      min-height: 8rem;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &.green {
+        background-color: $primary;
+      }
+
+      &.blue {
+        background-color: $secondary;
+      }
+
+      &.orange {
+        background-color: $accent;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .flag-circle {
+        position: absolute;
+        top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .suggested-group-info {
+        margin-top: 2.5rem;
+
+        .country {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 0.5rem;
+        }
+
+        .interest {
+          font-size: 18px;
+          color: #666;
+        }
+      }
+
+      .join-button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: $primary;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary, 20%);
+        }
+      }
+    }
+  }
+}
