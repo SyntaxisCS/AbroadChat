@@ -54,7 +54,7 @@ export default function Chat() {
                 </div>
 
                 <div className="rightGroup">
-                    <div className="chip"><span>meeetup</span></div>
+                    <NavLink to="/meetup" className="chip"><span>meeetup</span></NavLink>
                     <i className="bx bx-info-circle" />
                 </div>
             </header>
