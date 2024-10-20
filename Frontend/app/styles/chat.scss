@@ -5,20 +5,65 @@
     display: flex;
     height: 100vh;
     flex-direction: column;
-    background-color: $background;
+    background-color: #ffffff;
 
     .chatHeader {
         top: 0;
         color: $text;
         padding: 1em;
         z-index: 1000;
+        display: flex;
         position: sticky;
-        text-align: left;
-        background-color: $background;
+        flex-direction: row;
+        align-items: center;
+        background-color: #ffffff;
+        justify-content: space-between;
 
-        i {
-            font-size: 25px;
-            font-weight: bold;
+        .leftGroup {
+            gap: 0.5em;
+            display: flex;
+            flex-direction: row;
+
+            a {
+                color: $text;
+                text-decoration: none;
+
+                i {
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+            }
+
+            .groupName {
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+
+        .rightGroup {
+            gap: 0.25em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            .chip {
+                color: $text;
+                padding: 10px;
+                font-weight: bold;
+                border-radius: 20px;
+                background-color: $background;
+                transition: all 0.5s ease-in-out;
+
+                &:hover {
+                    transform: scale(0.9);
+                    background-color: darken($background, 5%);
+                }
+            }
+
+            i {
+                font-size: 25px;
+            }
         }
     }
 
@@ -27,8 +72,20 @@
         padding: 1rem;
         overflow-y: auto;
         background-color: #fff;
-        border-top: 1px solid darken($background, 20%);
-        border-bottom: 1px solid darken($background, 20%);
+        border-top: 1px solid $text;
+
+        .potd {
+            width: 100%;
+            display: flex;
+            color: $secondary;
+            padding: 10px 20px;
+            border-radius: 15px;
+            align-items: center;
+            margin-bottom: 0.5em;
+            box-sizing: border-box;
+            justify-content: center;
+            background-color: $text;
+        }
 
         .joinMessage {
             width: 100%;
@@ -62,7 +119,9 @@
 
     .chatFooter {
         padding: 0.5rem;
-        background-color: $background;
+        background-color: #ffffff;
+        border-top: 1px solid $text;
+        border-radius: 25px 25px 0 0;
 
         .messageForm {
             display: flex;
@@ -71,17 +130,20 @@
             justify-content: center;
 
             span {
-                top: 0.25rem;
-                left: 0.75rem;
-                font-size: 25px;
-                position: absolute;
+                font-size: 35px;
+                padding-bottom: 5px;
             }
 
             input {
                 flex: 1;
+                color: $text;
+                border: none;
+                font-size: 16px;
+                caret-color: $text;
                 border-radius: 20px;
                 padding: 0.8rem 2rem;
-                border: 1px solid darken($background, 20%);
+                background-color: $secondary;
+
             }
 
             button {
