@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/login.scss";
+import { Link } from "@remix-run/react";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ export default function Login() {
             required
           />
         </div>
-        <button type="submit" className="signin-button">Sign In</button>
+        <Link to="/home" className="signin-button">Sign In</Link>
       </form>
     </div>
   );
