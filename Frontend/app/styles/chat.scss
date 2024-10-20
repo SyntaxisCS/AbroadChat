@@ -1,91 +1,107 @@
-.chat-container {
+@import "../variables";
+
+.chatContainer {
+    color: $text;
     display: flex;
-    flex-direction: column;
     height: 100vh;
-    background-color: #f0f4f8;
-    font-family: Arial, sans-serif;
-  
-    .chat-header {
-      background-color: #0070f3;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-  
-      h1 {
-        font-size: 1.5rem;
-        margin: 0;
-      }
-    }
-  
-    .chat-content {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      background-color: #ffffff;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-  
-      .messages-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-  
-        .message-item {
-          padding: 0.5rem;
-          margin-bottom: 0.5rem;
-          border-radius: 5px;
-          background-color: #f9f9f9;
-  
-          &:nth-child(odd) {
-            background-color: #eef2f7;
-          }
-  
-          strong {
-            color: #0070f3;
-          }
+    flex-direction: column;
+    background-color: $background;
+
+    .chatHeader {
+        top: 0;
+        color: $text;
+        padding: 1em;
+        z-index: 1000;
+        position: sticky;
+        text-align: left;
+        background-color: $background;
+
+        i {
+            font-size: 25px;
+            font-weight: bold;
         }
-      }
     }
-  
-    .chat-footer {
-      padding: 0.5rem;
-      background-color: #f0f4f8;
-      border-top: 1px solid #ddd;
-  
-      .message-form {
-        display: flex;
-  
-        input {
-          flex: 1;
-          padding: 0.8rem;
-          border: 1px solid #ddd;
-          border-radius: 5px;
-          font-size: 1rem;
-          margin-right: 0.5rem;
-  
-          &:focus {
-            border-color: #0070f3;
-            outline: none;
-          }
+
+    .chatContent {
+        flex: 1;
+        padding: 1rem;
+        overflow-y: auto;
+        background-color: #fff;
+        border-top: 1px solid darken($background, 20%);
+        border-bottom: 1px solid darken($background, 20%);
+
+        .joinMessage {
+            width: 100%;
+            font-size: 0.8em;
+            text-align: center;
+            margin-bottom: 0.5em;
+            color: lighten($text, 30%);
         }
-  
-        button {
-          padding: 0.8rem 1rem;
-          background-color: #0070f3;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-  
-          &:hover {
-            background-color: #005bb5;
-          }
+
+        .messagesList {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            .messageItem {
+                padding: 0.5rem;
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+                background-color: $primary;
+
+                &:nth-child(odd) {
+                    background-color: $secondary;
+                }
+
+                strong {
+                    color: $text;
+                }
+            }
         }
-      }
     }
-  }
+
+    .chatFooter {
+        padding: 0.5rem;
+        background-color: $background;
+
+        .messageForm {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                top: 0.25rem;
+                left: 0.75rem;
+                font-size: 25px;
+                position: absolute;
+            }
+
+            input {
+                flex: 1;
+                border-radius: 20px;
+                padding: 0.8rem 2rem;
+                border: 1px solid darken($background, 20%);
+            }
+
+            button {
+                color: $text;
+                top: 0.35rem;
+                border: none;
+                right: 0.25rem;
+                font-size: 25px;
+                background: none;
+                position: absolute;
+                transition: all 0.5s ease-in-out;
+
+                &:hover {
+                    color: $primary;
+                }
+
+                i {
+                    transform: rotate(-27deg);
+                }
+            }
+        }
+    }
+}
