@@ -14,7 +14,7 @@ CREATE TABLE users ( -- User auth table, only holds stuff related to auth, proje
     is_totp_enabled BOOLEAN DEFAULT false NOT NULL,
     totp_secret TEXT,
     passkey_enabled BOOLEAN DEFAULT false NOT NULL,
-    user_type TEXT DEFAULT 'user'::TEXT NOT NULL,
+    user_type TEXT DEFAULT 'user' NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     last_sign_in_at TIMESTAMP

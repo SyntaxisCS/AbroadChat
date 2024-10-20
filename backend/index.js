@@ -13,7 +13,8 @@ dotenv.config();
 import { logger } from "./logger.js";
 
 // Routes
-import AuthRoutes from "./src/auth/masterRoutes.js";
+import AuthRoutes from "./src/api/masterAuthRoutes.js";
+import ProfileRoutes from "./src/api/routes/profiles.js";
 
 // Middleware
 import accessTokenValidation from "./src/middleware/accessTokenValidation.js";
@@ -42,6 +43,9 @@ app.use(accessTokenValidation);
 
 // Auth Routes
 app.use("/auth", AuthRoutes);
+
+// Routes
+app.use("/profile", ProfileRoutes);
 
 app.listen(process.env.BACKEND_PORT || 9802, () => {
     logger.info(`Server is running on port ${process.env.BACKEND_PORT || 9802}`);
