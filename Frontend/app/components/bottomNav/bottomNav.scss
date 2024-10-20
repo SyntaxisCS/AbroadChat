@@ -1,0 +1,29 @@
+@import "../../variables";
+
+.bottomNav {
+    gap: 1em;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    color: $text;
+    flex-direction: row;
+    align-items: center;
+    background-color: $primary;
+    justify-content: space-evenly;
+
+    .icon {
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        i {
+            font-size: 25px;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    }
+}
