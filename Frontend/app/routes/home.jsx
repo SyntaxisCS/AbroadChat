@@ -17,14 +17,16 @@ export default function Home() {
   ]);
   
   const [suggestedGroups, setSuggestedGroups] = useState([
-    { id: 4, country: "Colombia", interest: "Coffee", img: ""},
-    { id: 5, country: "South America", interest: "Sports" },
-    { id: 6, country: "Colombia", interest: "Food" },
+    { id: 4, country: "Colombia", interest: "Coffee", img: "/rounded_spain.png", name: "Colombia Coffee", color: "blue"},
+    { id: 5, country: "South America", interest: null, img: "/rounded_american.png", name: "South America", color: "green"},
+    { id: 6, country: "Colombia", interest: "Food", img: "/rounded_american.png", name: "Colombia Food", color: "orange" },
+    { id: 7, country: "Colombia", interest: "Culture", img: "/rounded_spain.png", name: "Colombia Culture", color: "blue" },
   ]);
   const [showModal, setShowModal] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState(null);
 
   const handleJoinClick = (group) => {
+    console.log("this is group: ", group)
     setSelectedGroup(group);
     setShowModal(true);
   };
@@ -32,7 +34,7 @@ export default function Home() {
   const handleConfirmJoin = () => {
     if (selectedGroup) {
       // Navigate to the appropriate chat room
-      navigate(`/chat/${selectedGroup.id}`);
+      navigate(`/chat/4`);
     }
     setShowModal(false);
     setSelectedGroup(null);
@@ -63,7 +65,7 @@ export default function Home() {
           <h2>Suggested Groups</h2>
           <div className="suggested-group-grid">
             {suggestedGroups.map((group) => (
-              <div key={group.id} className="suggested-group-box">
+              <div key={group.id} className={`suggested-group-box ${group.color}`} onClick={handleJoinClick}>
                 <div className="flag-circle">
                   <img src={group.img} alt="n/a" />
                 </div>
@@ -71,18 +73,18 @@ export default function Home() {
                   <div className="country">{group.country}</div>
                   <div className="interest">{group.interest}</div>
                 </div>
-                <button className="join-button">Join</button>
               </div>
             ))}
           </div>
+          <button className="join-group-button">Join a New Group</button>
         </section>
-        <button className="join-group-button">Join a New Group</button>
+        
       </main>
 
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h2>Join {selectedGroup?.name}?</h2>
+            <h2>Join Colombia Coffee?</h2>
             <p>Are you sure you want to join this group?</p>
             <button className="confirm-button" onClick={handleConfirmJoin}>
               Yes

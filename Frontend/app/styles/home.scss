@@ -1,8 +1,10 @@
+@import "../variables";
+
 .home-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #f9f9f9;
+    background-color: $background;
     font-family: Arial, sans-serif;
   
     .app-header {
@@ -22,14 +24,14 @@
   
     .main-content {
       flex: 1;
-      padding: 1rem;
+      padding: 1rem 0 0 0;
       overflow-y: auto;
   
       .groups-section {
         margin-bottom: 2rem;
   
         h2 {
-          font-size: 1.2rem;
+          font-size: 28px;
           margin-bottom: 1rem;
           color: #333;
         }
@@ -41,7 +43,9 @@
   
           .group-item {
             background-color: #fff;
-            border-radius: 5px;
+            margin-right: 1rem;
+            margin-left: 1rem;
+            border-radius: 10px;
             padding: 1rem;
             margin-bottom: 0.8rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -59,6 +63,7 @@
               background-color: #28a745;
               color: #fff;
               border: none;
+              
               border-radius: 3px;
               padding: 0.4rem 0.8rem;
               font-size: 0.9rem;
@@ -79,11 +84,13 @@
   
       .join-group-button {
         display: block;
-        width: 100%;
+        width: 90%;
         padding: 0.8rem;
         background-color: #0070f3;
         color: #fff;
         border: none;
+        margin: auto;
+        box-sizing: border-box;
         border-radius: 5px;
         font-size: 1.2rem;
         font-weight: bold;
@@ -112,9 +119,12 @@
   }
   
   .modal-content {
-    background-color: #fff;
+    background-color: $secondary;
+    display: flex;
+    flex-direction: column;
     padding: 2rem;
     border-radius: 5px;
+    align-items: center;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -122,52 +132,58 @@
   .confirm-button,
   .cancel-button {
     padding: 0.8rem 1.2rem;
-    border: none;
+    border: 2px solid black;
     border-radius: 5px;
+    max-width: 5rem;
     font-size: 1rem;
     cursor: pointer;
     margin: 0.5rem;
   }
   
   .confirm-button {
-    background-color: #28a745;
-    color: #fff;
+    background-color: $secondary;
+    color: black;
     transition: background-color 0.3s ease;
   
     &:hover {
-      background-color: #218838;
+      background-color: $primary;
     }
   }
   
   .cancel-button {
-    background-color: #dc3545;
-    color: #fff;
+    background-color: $secondary;
+    color: black;
     transition: background-color 0.3s ease;
   
     &:hover {
-      background-color: #c82333;
+      background-color: $primary;
     }
   }
 
     .suggested-groups-section {
-      margin-bottom: 2rem;
+      margin-bottom: 0;
 
       h2 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+        font-size: 28px;
         color: #333;
       }
 
       .suggested-group-grid {
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 1rem;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
-        margin-top: 1rem;
+        row-gap: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
 
         .suggested-group-box {
           position: relative;
           background-color: #fff;
-          border-radius: 10px;
+          border-radius: 25%;
+          min-height: 8rem;
           padding: 1rem;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           display: flex;
@@ -175,6 +191,18 @@
           align-items: center;
           text-align: center;
           transition: transform 0.3s ease;
+
+          &.green{
+            background-color: $primary;
+          }
+
+          &.blue{
+            background-color: $secondary;
+          }
+
+          &.orange{
+            background-color: $accent;
+          }
 
           &:hover {
             transform: translateY(-5px);
@@ -201,14 +229,14 @@
             margin-top: 2.5rem;
 
             .country {
-              font-size: 1rem;
+              font-size: 24px;
               font-weight: bold;
               color: #333;
               margin-bottom: 0.5rem;
             }
 
             .interest {
-              font-size: 0.9rem;
+              font-size: 18px;
               color: #666;
             }
           }
